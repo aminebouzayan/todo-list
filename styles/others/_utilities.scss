@@ -4,13 +4,13 @@ $space: 1rem;
 
 $spaces: (
       0:0,
-      1: $space / 4,
-      2: $space / 3,
-      3: $space / 2,
+      1: calc($space / 4),
+      2: calc($space / 3),
+      3: calc($space / 2),
       4: $space,
-      5: $space * 2,
-      6: $space * 3,
-      7: $space * 4,
+      5: calc($space * 2),
+      6: calc($space * 3),
+      7: calc($space * 4),
 );
 
 //* spacing with margin
