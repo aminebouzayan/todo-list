@@ -20,16 +20,13 @@
 
 //! >=> *** modules folder ***
 
-@import	"modules/switch-default";
-@import	"modules/switch-alternative";
-
-//! >=> *** components folder ***
-
-@import	"components/accordion";
-@import	"components/buttons";
-@import	"components/carousel";
-@import	"components/forms";
-@import	"components/off-canvas";
+@import	"modules/accordion";
+@import	"modules/buttons";
+@import	"modules/carousel";
+@import	"modules/forms";
+@import	"modules/off-canvas";
+@import	"modules/short-toggle";
+@import	"modules/simple-toggle";
 
 //! >=> *** layout folder ***
 
