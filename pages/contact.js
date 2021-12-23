@@ -4,7 +4,7 @@ const Contact = () =>
 {
   return (
     <>
-      <div className={'bg-warning ps-2'}>
+      <div className='bg-warning ps-2'>
         <p>lorem ipsum dolor set ame</p>
         <ol>
           <li>yop</li>
@@ -14,7 +14,7 @@ const Contact = () =>
       </div>
       <section>
         <button className='btn'>remind</button>
-        <span>I'll never forget this days</span>
+        <span className='d-block ms-1'>I'll never forget this days</span>
       </section>
     </>
   )
