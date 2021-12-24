@@ -1,8 +1,8 @@
-const CarouselImage = ({ items }) => {
+const CarouselImage = ({ paths, currentSlide }) => {
   return (
     <>
-      {items.map((path) => {
-        if (path === "10") {
+      {paths.map((path) => {
+        if (Number(path) === currentSlide) {
           return (
             <img
               key={path}
@@ -25,4 +25,4 @@ const CarouselImage = ({ items }) => {
   );
 };
 
-export default Carouse
+export default CarouselImage;
