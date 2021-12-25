@@ -1,34 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useContext } from "react";
 import CarouselImage from "./CarouselImage";
+import { AppContext } from "./CarouselContext";
 import CarouselIndicator from "./CarouselIndicator";
 
 const Carousel = () => {
-  const items = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-  const [index, setIndex] = useState(1);
-  useEffect(() => {
-    setInterval(() => {
-      if (index === items.length) {
-        setIndex((index = 0));
-      }
-      setIndex((index += 1));
-    }, 3e3);
-  }, []);
-
-  const previousSlide = () => {
-    if (index === 1) {
-      setIndex((index = items.length + 1));
-    }
-    setIndex((index -= 1));
-  };
-
-  const nextSlide = () => {
-    if (index === items.length) {
-      setIndex((index = 0));
-    }
-    setIndex((index += 1));
-  };
-
-  // const checkSlide = () => {};
+  const { items, index, setIndex, previousSlide, nextSlide } =
+    useContext(AppContext);
 
   return (
     <section className='carousel'>

@@ -7,5 +7,5 @@ export default function Home() {
       <h1>Hello world!</h1>
       <section>slowly but surely</section>
     </>
-  )
+  );
 }
