@@ -1,3 +1,4 @@
+// import Image from "next/image";
 const CarouselImage = ({ paths, currentSlide }) => {
   return (
     <>
@@ -9,6 +10,9 @@ const CarouselImage = ({ paths, currentSlide }) => {
               src={`/images/${path}.jpg`}
               alt='slide'
               className='carousel__img--active'
+              // layout='fill'
+              // placeholder='blur'
+              // blurDataURL={`/images/${path}.jpg`}
             />
           );
         }

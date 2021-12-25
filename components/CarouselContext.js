@@ -12,9 +12,9 @@ const AppProvider = ({ children }) => {
         setIndex((index = 0));
       }
       setIndex((index += 1));
-    }, 5e3);
+    }, 3e3);
     return () => clearInterval(timerId);
-  }, []);
+  }, [index]);
 
   const previousSlide = () => {
     if (index === 1) {
