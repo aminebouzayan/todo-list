@@ -10,21 +10,13 @@ const Carousel = () => {
   return (
     <section className='carousel'>
       <span className='badge bg-dark txt-light size-5'>slide N°{index}</span>
-      <CarouselImage paths={items} currentSlide={index} />
+      <CarouselImage paths={items} current={index} />
       <div className='carousel__controls'>
-        <button className='carousel__prev' onClick={previousSlide}>
-          &lt;
-        </button>
-        <button className='carousel__next' onClick={nextSlide}>
-          &gt;
-        </button>
+        <button className='carousel__prev' onClick={previousSlide}>&lt;</button>
+        <button className='carousel__next' onClick={nextSlide}>&gt;</button>
       </div>
       <ul className='carousel__indicators'>
-        <CarouselIndicator
-          items={items}
-          current={index}
-          setCurrent={setIndex}
-        />
+        <CarouselIndicator list={items} current={index} setCurrent={setIndex} />
       </ul>
     </section>
   );

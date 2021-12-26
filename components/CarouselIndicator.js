@@ -1,7 +1,7 @@
-const CarouselIndicator = ({ items, current, setCurrent }) => {
+const CarouselIndicator = ({ list, current, setCurrent }) => {
   return (
     <>
-      {items.map((item) => {
+      {list.map((item) => {
         if (Number(item) === current) {
           return (
             <li key={item} tabIndex='0' role='button' className='active'>

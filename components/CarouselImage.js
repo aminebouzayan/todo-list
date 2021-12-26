@@ -1,9 +1,9 @@
 // import Image from "next/image";
-const CarouselImage = ({ paths, currentSlide }) => {
+const CarouselImage = ({ paths, current }) => {
   return (
     <>
       {paths.map((path) => {
-        if (Number(path) === currentSlide) {
+        if (Number(path) === current) {
           return (
             <img
               key={path}
