@@ -13,10 +13,10 @@
 
 //! >=> *** others folder  ***
 
-@import	"others/helpers";
-@import	"others/utilities";
-@import	"others/typography";
-@import	"others/animations";
+@import	"utilities/helpers";
+@import	"utilities/utilities";
+@import	"utilities/typography";
+@import	"utilities/behaviors";
 
 //! >=> *** modules folder ***
 
@@ -31,17 +31,17 @@
 //! >=> *** layout folder ***
 
 @import	"layout/grid";
-@import  "layout/header";
+@import "layout/header";
 @import	"layout/navbar";
 @import	"layout/sidebar";
 @import	"layout/footer";
 
 //! >=> *** pages folder ***
 
-@import "pages/home";
-@import	"pages/features";
-@import	"pages/faq";
-@import	"pages/contact";
-@import	"pages/about";
+@import "views/home";
+@import	"views/features";
+@import	"views/faq";
+@import	"views/contact";
+@import	"views/about";
 
 //! >=> *** vendors folder ***
