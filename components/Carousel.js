@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import CarouselImage from "./CarouselImage";
-import { AppContext } from "./CarouselContext";
-import CarouselIndicator from "./CarouselIndicator";
+import CarouselImage from "./dependencies/CarouselImage";
+import { AppContext } from "./dependencies/CarouselContext";
+import CarouselIndicator from "./dependencies/CarouselIndicator";
 
 const Carousel = () => {
   const { items, index, setIndex, previousSlide, nextSlide } =

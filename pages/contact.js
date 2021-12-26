@@ -1,8 +1,12 @@
 import React from "react";
-import Carousel from "../components/Carousel";
+// import Carousel from "../components/Carousel";
 
 const Contact = () => {
-  return <Carousel />;
+  return (
+  <>
+    <div>that's good</div>
+  </>
+  )
 };
 
 export default Contact;
