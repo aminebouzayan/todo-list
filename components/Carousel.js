@@ -3,7 +3,8 @@ import CarouselImage from "./dependencies/CarouselImage";
 import { AppContext } from "./dependencies/CarouselContext";
 import CarouselIndicator from "./dependencies/CarouselIndicator";
 
-const Carousel = () => {
+const Carousel = () =>
+{
   const { items, index, setIndex, previousSlide, nextSlide } =
     useContext(AppContext);
 
