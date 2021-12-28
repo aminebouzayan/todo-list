@@ -1,0 +1,72 @@
+%panel {
+  display: block;
+  padding: 22px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
+  border-radius: inherit;
+  border: inherit;
+  background: inherit;
+  box-shadow: 0 5px 25px -15px rgb(200, 200, 200);
+  transition: all 1s ease;
+  position: relative;
+}
+
+.accordion {
+  width: 800px;
+  min-height: 500px;
+  margin: 22px;
+  padding: 22px;
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 10px;
+  background-color: white;
+  // @extend %align-position;
+  box-shadow: 7px 7px 30px -10px rgb(212, 212, 212);
+  // border-left: 10px solid rgb(167, 167, 167);
+
+  &__panel {
+    @extend %panel;
+
+    h3 {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 22px;
+      text-transform: capitalize;
+    }
+
+    p {
+      color: $gray;
+    }
+
+    button {
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      width: 30px;
+      height: 30px;
+    }
+
+    span {
+      @extend %align-position;
+
+      svg {
+        width: 18px;
+        color: $winter;
+      }
+    }
+  }
+
+  &__panel--collapsed {
+    height: 70px;
+    overflow: hidden;
+    // p {
+    //   opacity: 0;
+    // }
+  }
+  &__panel--expanded {
+    height: 150px;
+    // p {
+    // transition: all 2s ease-in-out;
+    //   opacity: 1;
+    // }
+  }
+}

@@ -92,10 +92,10 @@ body {
     height: 50px;
     border-radius: 50%;
     font-size: xx-large;
-    background-color: $link;
+    background-color: $gray-200;
 
     &:focus {
-      outline: 3px solid rgba(0, 76, 255, 0.397);
+      outline: 3px solid rgba(154, 184, 255, 0.397);
     }
   }
 }
