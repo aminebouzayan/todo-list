@@ -1,12 +1,16 @@
-import React from 'react'
+import { useState } from "react";
+import { data } from "./dependencies/AccordionData";
+import AccordionPanel from "./dependencies/AccordionPanel";
 
-const Accordion = () =>
-{
+const Accordion = () => {
+  const [items] = useState(data);
   return (
-    <div>
-      <p>hello everyone</p>
-    </div>
-  )
-}
+    <section className='accordion'>
+      {items.map((item) => {
+        return <AccordionPanel key={item.id} {...item} />;
+      })}
+    </section>
+  );
+};
 
-export default Accordion
+export default Accordion;
