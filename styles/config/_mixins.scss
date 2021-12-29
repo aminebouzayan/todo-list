@@ -1,54 +1,60 @@
 @mixin respond-to($breakpoint) {
-      $raw-query: map-get($breakpoints, $breakpoint);
+  $raw-query: map-get($breakpoints, $breakpoint);
 
-      @if $raw-query {
-            $query: if(
-                  type-of($raw-query) == 'string',
-                  unquote($raw-query),
-                  inspect($raw-query),
-            );
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == "string",
+      unquote($raw-query),
+      inspect($raw-query)
+    );
 
-            @media #{$query} {
-                  @content;
-            }
-      }
-      @else {
-            @error 'No value found for `#{breakpoint}`. '
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{breakpoint}`. '
             + 'Please make sure it is defined in `$breakpoints` map.';
-      }
+  }
 }
 
 @mixin respond-down-to($breakpoint) {
-      $raw-query: map-get($max-breakpoints, $breakpoint);
+  $raw-query: map-get($max-breakpoints, $breakpoint);
 
-      @if $raw-query {
-            $query: if(
-                  type-of($raw-query) == 'string',
-                  unquote($raw-query),
-                  inspect($raw-query),
-            );
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == "string",
+      unquote($raw-query),
+      inspect($raw-query)
+    );
 
-            @media #{$query} {
-                  @content;
-            }
-      }
-      @else {
-            @error 'No value found for `#{breakpoint}`. '
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{breakpoint}`. '
             + 'Please make sure it is defined in `$breakpoints` map.';
-      }
+  }
 }
 
 @mixin countBorderRadius($radius) {
-      -webkit-border-radius: $radius;
-      -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-      -o-border-radius: $radius;
-      border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin clearfix() {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 }
 
 b {
-      color: red;
-      @include respond-to('xxl') {
-      color: blue;
-      }
+  color: red;
+  @include respond-to("xxl") {
+    color: blue;
+  }
 }

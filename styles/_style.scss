@@ -1,47 +1,48 @@
 //! >=> *** base folder ***
 
 @import "base/reset";
-@import	"base/reboot";
-@import	"base/normalize";
+@import "base/reboot";
+@import "base/normalize";
 
 //! >=> *** config folder ***
 
 @import "config/variables";
-@import	"config/mixins";
-@import	"config/functions";
-@import	"config/placeholders";
+@import "config/mixins";
+@import "config/functions";
+@import "config/placeholders";
 
 //! >=> *** others folder  ***
 
-@import	"utilities/helpers";
-@import	"utilities/utilities";
-@import	"utilities/typography";
-@import	"utilities/behaviors";
+@import "utilities/helpers";
+@import "utilities/utilities";
+@import "utilities/typography";
+@import "utilities/behaviors";
 
 //! >=> *** modules folder ***
 
-@import	"modules/accordion";
-@import	"modules/buttons";
-@import	"modules/carousel";
-@import	"modules/forms";
-@import	"modules/off-canvas";
-@import	"modules/short-toggle";
-@import	"modules/simple-toggle";
+@import "modules/accordion";
+@import "modules/buttons";
+@import "modules/carousel";
+@import "modules/forms";
+@import "modules/off-canvas";
+@import "modules/short-toggle";
+@import "modules/simple-toggle";
 
 //! >=> *** layout folder ***
 
-@import	"layout/grid";
+@import "layout/grid";
 @import "layout/header";
-@import	"layout/navbar";
-@import	"layout/sidebar";
-@import	"layout/footer";
+@import "layout/navbar";
+@import "layout/sidebar";
+@import "layout/footer";
 
 //! >=> *** pages folder ***
 
 @import "views/home";
-@import	"views/features";
-@import	"views/faq";
-@import	"views/contact";
-@import	"views/about";
+@import "views/features";
+@import "views/faq";
+@import "views/contact";
+@import "views/about";
+@import "views/todo";
 
 //! >=> *** vendors folder ***
