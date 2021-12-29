@@ -1,39 +1,35 @@
 .p-fixed {
-      position: fixed;
+  position: fixed;
 }
 
 .p-sticky {
-      position: sticky;
+  position: sticky;
 }
 
 .p-absolute {
-      position: absolute;
+  position: absolute;
 }
 
 .p-relative {
-      position: relative;
+  position: relative;
 }
 
 .d-block {
-      display: block;
+  display: block;
 }
 
 .d-inline {
-      display: inline;
+  display: inline;
 }
 
 .thumbnail {
-      width: 111px;
-      height: 111px;
-      padding: 11px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
+  width: 111px;
+  height: 111px;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
-@mixin clearfix() {
-      &::after {
-            content: '';
-            clear: both;
-            display: table;
-      }
+.clear-fix {
+  @include clearfix();
 }

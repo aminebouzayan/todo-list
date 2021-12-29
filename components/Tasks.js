@@ -2,6 +2,11 @@ import React from "react";
 import { BiTask } from "react-icons/bi";
 
 const Tasks = () => {
+  const initialState = {
+    list: data,
+    empty: false,
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -19,19 +24,19 @@ const Tasks = () => {
       </form>
       <input type='checkbox' className='tasks__toggle switch' />
       <span className='clear-fix'></span>
-      <ul className='tasks__list'>
-        <li>
-          <button>-</button>
-          <p>mmmmmmmmmmmmmmm</p>
-          <button>+</button>
-        </li>
-        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
-        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
-        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
-        <li>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</li>
-      </ul>
+      <ul className='tasks__list'></ul>
     </section>
   );
 };
 
 export default Tasks;
+
+{
+  /* <li>
+          <p>mmmmmmmmmmmmmmm</p>
+          <button><FaTrash /></button>
+          <button><RiEdit2Fill /></button>
+          <butto
+        n><GiCheckMark /></button>
+  </li> */
+}
