@@ -8,7 +8,7 @@ const reducer = (state, action) => {
     case "DELETE_ITEM":
       return { ...state, list: action.payload };
     case "CHECK_ITEM":
-      return { ...state, list: [...list, action.payload] };
+      return { ...state, list: action.payload };
     default:
       throw new Error(`there is no action type match ${action.type}`);
   }

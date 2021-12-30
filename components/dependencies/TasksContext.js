@@ -10,9 +10,10 @@ import reducer from "./reducer";
 export const AppContext = React.createContext();
 
 const TasksContext = ({ children }) => {
+  const check = false;
   const reference = useRef(null);
+  const [check, setCheck] = useState(false);
   const [text, setText] = useState("");
-  const [checked, setChecked] = useState(false);
   const initialState = {
     list: [],
     isEmpty: true,
@@ -25,7 +26,7 @@ const TasksContext = ({ children }) => {
     const newItem = {
       text,
       id: new Date().getTime().toString(),
-      checked,
+      checked: check,
     };
     dispatch({ type: "ADD_ITEM", payload: newItem });
     setText("");
@@ -38,15 +39,15 @@ const TasksContext = ({ children }) => {
   };
 
   const handleCheck = (id) => {
-    const item = state.list
-      .find((item) => item.id === id)
-      .map((item) => (item.checked = setChecked(!checked)));
-    dispatch({ type: "CHECK_ITEM", payload: item });
+    const item = state.list.find((item) => item.id === id);
+    const items = state.list.filter((item) => item.id !== id);
+    const checkedItem = { ...item, checked: setCheck(!check) };
+    const newItems = [...items, checkedItem];
+    dispatch({ type: "CHECK_ITEM", payload: newItems });
   };
 
   useEffect(() => {
     if (state.list.length === 0) {
-      console.log(!!state.list);
       dispatch({ type: "NO_VALUE" });
     }
   }, [state.list]);
