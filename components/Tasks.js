@@ -1,15 +1,10 @@
-import React from "react";
+import { useGlobal } from "./dependencies/TasksContext";
 import { BiTask } from "react-icons/bi";
+import TasksList from "./dependencies/TasksList";
 
 const Tasks = () => {
-  const initialState = {
-    list: data,
-    empty: false,
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const { text, setText, handleSubmit, reference } = useGlobal();
+
   return (
     <section className='tasks'>
       <form className='tasks__field' onSubmit={handleSubmit}>
@@ -17,6 +12,9 @@ const Tasks = () => {
           type='text'
           className='tasks__txt'
           placeholder='create your tasks e.g. tomatoes'
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          ref={reference}
         />
         <button type='submit' className='tasks__btn' onClick={handleSubmit}>
           <BiTask />
@@ -24,7 +22,9 @@ const Tasks = () => {
       </form>
       <input type='checkbox' className='tasks__toggle switch' />
       <span className='clear-fix'></span>
-      <ul className='tasks__list'></ul>
+      <ul className='tasks__list'>
+        <TasksList />
+      </ul>
     </section>
   );
 };
