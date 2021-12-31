@@ -16,7 +16,7 @@ const TasksContext = ({ children }) => {
   const [editID, setEditID] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const initialState = {
-    list: [],
+    list: JSON.parse(localStorage.getItem("LIST")) || [],
     isEmpty: true,
     content: "",
   };
@@ -76,6 +76,15 @@ const TasksContext = ({ children }) => {
       dispatch({ type: "NO_VALUE" });
     }
   }, [state.list]);
+
+  useEffect(() => {
+    localStorage.setItem("LIST", JSON.stringify(state.list));
+  }, [state.list]);
+
+  // useEffect(() => {
+  //   const data = JSON.parse(localStorage.getItem("LIST"));
+  //   dispatch({ type: "UPDATE_STATE", payload: data });
+  // }, []);
 
   return (
     <AppContext.Provider

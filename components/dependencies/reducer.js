@@ -1,5 +1,6 @@
 const reducer = (state, action) => {
   const newList = [...state.list, action.payload];
+
   switch (action.type) {
     case "ADD_ITEM":
       return { ...state, list: newList, isEmpty: false, content: "" };
@@ -15,6 +16,9 @@ const reducer = (state, action) => {
 
     case "EDIT_ITEM":
       return { ...state, list: action.payload };
+
+    // case "UPDATE_STATE":
+    //   return { state: action.payload };
 
     default:
       throw new Error(`there is no action type match ${action.type}`);
