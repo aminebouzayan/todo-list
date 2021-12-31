@@ -10,7 +10,6 @@ import reducer from "./reducer";
 export const AppContext = React.createContext();
 
 const TasksContext = ({ children }) => {
-  const check = false;
   const reference = useRef(null);
   const [check, setCheck] = useState(false);
   const [text, setText] = useState("");
@@ -24,8 +23,8 @@ const TasksContext = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {
-      text,
       id: new Date().getTime().toString(),
+      text,
       checked: check,
     };
     dispatch({ type: "ADD_ITEM", payload: newItem });
@@ -39,11 +38,15 @@ const TasksContext = ({ children }) => {
   };
 
   const handleCheck = (id) => {
-    const item = state.list.find((item) => item.id === id);
-    const items = state.list.filter((item) => item.id !== id);
-    const checkedItem = { ...item, checked: setCheck(!check) };
-    const newItems = [...items, checkedItem];
-    dispatch({ type: "CHECK_ITEM", payload: newItems });
+    setCheck(!check);
+    let checkedList = state.list.map((item) => {
+      if (item.id === id) {
+        item.checked = check;
+      } else {
+        return item;
+      }
+    });
+    dispatch({ type: "CHECK_ITEM", payload: checkedList });
   };
 
   useEffect(() => {
@@ -68,7 +71,6 @@ const TasksContext = ({ children }) => {
     </AppContext.Provider>
   );
 };
-
 export const useGlobal = () => {
   return useContext(AppContext);
 };
