@@ -3,7 +3,7 @@ import { BiTask } from "react-icons/bi";
 import TasksList from "./dependencies/TasksList";
 
 const Tasks = () => {
-  const { text, setText, handleSubmit, reference } = useGlobal();
+  const { name, setName, handleSubmit, reference } = useGlobal();
 
   return (
     <section className='tasks'>
@@ -12,8 +12,8 @@ const Tasks = () => {
           type='text'
           className='tasks__txt'
           placeholder='create your tasks e.g. tomatoes'
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
           ref={reference}
         />
         <button type='submit' className='tasks__btn' onClick={handleSubmit}>
@@ -30,13 +30,3 @@ const Tasks = () => {
 };
 
 export default Tasks;
-
-{
-  /* <li>
-          <p>mmmmmmmmmmmmmmm</p>
-          <button><FaTrash /></button>
-          <button><RiEdit2Fill /></button>
-          <butto
-        n><GiCheckMark /></button>
-  </li> */
-}

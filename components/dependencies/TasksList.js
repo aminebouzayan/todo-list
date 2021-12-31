@@ -4,7 +4,7 @@ import { RiEdit2Fill } from "react-icons/ri";
 import { GiCheckMark } from "react-icons/gi";
 
 const TasksList = () => {
-  const { list, content, handleDelete, handleCheck } = useGlobal();
+  const { list, content, handleDelete, handleCheck, handleEdit } = useGlobal();
   return (
     <>
       {content ||
@@ -17,7 +17,7 @@ const TasksList = () => {
                 <FaTrash onClick={() => handleDelete(id)} />
               </button>
               <button>
-                <RiEdit2Fill />
+                <RiEdit2Fill onClick={() => handleEdit(id)} />
               </button>
               <button>
                 <GiCheckMark onClick={() => handleCheck(id)} />

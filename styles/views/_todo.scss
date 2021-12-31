@@ -93,7 +93,7 @@ body {
         /* transition: all 500ms ease; */
         &.completed {
           text-decoration: 1px line-through #ccc;
-          color: green;
+          color: $grey;
         }
       }
 

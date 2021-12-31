@@ -12,7 +12,9 @@ export const AppContext = React.createContext();
 const TasksContext = ({ children }) => {
   const reference = useRef(null);
   const [check, setCheck] = useState(false);
-  const [text, setText] = useState("");
+  const [name, setName] = useState("");
+  const [editID, setEditID] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const initialState = {
     list: [],
     isEmpty: true,
@@ -22,13 +24,26 @@ const TasksContext = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
-      id: new Date().getTime().toString(),
-      text,
-      checked: check,
-    };
-    dispatch({ type: "ADD_ITEM", payload: newItem });
-    setText("");
+    if (name && isEditing) {
+      const newList = state.list.map((item) => {
+        if (item.id === editID) {
+          return { ...item, text: name };
+        }
+        return item;
+      });
+      setName("");
+      setIsEditing(false);
+      setEditID(null);
+      dispatch({ type: "EDIT_ITEM", payload: newList });
+    } else {
+      const newItem = {
+        id: new Date().getTime().toString(),
+        text: name,
+        checked: check,
+      };
+      dispatch({ type: "ADD_ITEM", payload: newItem });
+      setName("");
+    }
     reference.current.focus();
   };
 
@@ -42,11 +57,18 @@ const TasksContext = ({ children }) => {
     let checkedList = state.list.map((item) => {
       if (item.id === id) {
         item.checked = check;
-      } else {
-        return item;
       }
+      return item;
     });
     dispatch({ type: "CHECK_ITEM", payload: checkedList });
+  };
+
+  const handleEdit = (id) => {
+    const specificItem = state.list.find((item) => item.id === id);
+    setEditID(id);
+    setName(specificItem.text);
+    setIsEditing(true);
+    reference.current.focus();
   };
 
   useEffect(() => {
@@ -58,13 +80,14 @@ const TasksContext = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        ...state,
-        text,
-        setText,
-        handleSubmit,
+        name,
+        setName,
         reference,
+        handleSubmit,
         handleDelete,
         handleCheck,
+        handleEdit,
+        ...state,
       }}
     >
       {children}
