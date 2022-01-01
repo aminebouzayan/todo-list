@@ -15,11 +15,13 @@ const TasksContext = ({ children }) => {
   const [name, setName] = useState("");
   const [editID, setEditID] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
   const initialState = {
-    list: JSON.parse(localStorage.getItem("LIST")) || [],
-    isEmpty: true,
+    list: [],
+    type: "warning",
     content: "",
   };
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSubmit = (e) => {
@@ -72,19 +74,23 @@ const TasksContext = ({ children }) => {
   };
 
   useEffect(() => {
+    if (state !== initialState) {
+      localStorage.setItem("LIST", JSON.stringify(state.list));
+    }
+  }, [state.list]);
+
+  useEffect(() => {
     if (state.list.length === 0) {
       dispatch({ type: "NO_VALUE" });
     }
   }, [state.list]);
 
   useEffect(() => {
-    localStorage.setItem("LIST", JSON.stringify(state.list));
-  }, [state.list]);
-
-  // useEffect(() => {
-  //   const data = JSON.parse(localStorage.getItem("LIST"));
-  //   dispatch({ type: "UPDATE_STATE", payload: data });
-  // }, []);
+    dispatch({
+      type: "UPDATE_STATE",
+      payload: JSON.parse(localStorage.getItem("LIST")),
+    });
+  }, []);
 
   return (
     <AppContext.Provider
