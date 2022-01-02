@@ -13,14 +13,14 @@ const TasksList = () => {
           return (
             <li key={id}>
               <p className={`${checked === true ? `completed` : ``}`}>{text}</p>
-              <button>
-                <FaTrash onClick={() => handleDelete(id)} />
+              <button onClick={() => handleDelete(id)}>
+                <FaTrash />
               </button>
-              <button>
-                <RiEdit2Fill onClick={() => handleEdit(id)} />
+              <button onClick={() => handleEdit(id)}>
+                <RiEdit2Fill />
               </button>
-              <button>
-                <GiCheckMark onClick={() => handleCheck(id)} />
+              <button onClick={() => handleCheck(id)}>
+                <GiCheckMark />
               </button>
             </li>
           );

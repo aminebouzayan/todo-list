@@ -26,7 +26,9 @@ const TasksContext = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name && isEditing) {
+    if (!name) return null;
+    else if (name.trim() === "") return;
+    else if (name && isEditing) {
       const newList = state.list.map((item) => {
         if (item.id === editID) {
           return { ...item, text: name };
@@ -90,6 +92,7 @@ const TasksContext = ({ children }) => {
       type: "UPDATE_STATE",
       payload: JSON.parse(localStorage.getItem("LIST")),
     });
+    reference.current.focus();
   }, []);
 
   return (
