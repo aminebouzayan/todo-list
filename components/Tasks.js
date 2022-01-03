@@ -3,8 +3,7 @@ import { BiTask } from "react-icons/bi";
 import TasksList from "./dependencies/TasksList";
 
 const Tasks = () => {
-  const { name, setName, handleSubmit, reference, filterCheckedItems } =
-    useGlobal();
+  const { name, setName, handleSubmit, reference } = useGlobal();
 
   return (
     <section className='tasks'>
@@ -21,7 +20,6 @@ const Tasks = () => {
           <BiTask />
         </button>
       </form>
-      <span className='clear-fix'></span>
       <ul className='tasks__list'>
         <TasksList />
       </ul>

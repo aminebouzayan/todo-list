@@ -19,11 +19,10 @@ body {
   background-color: white;
 
   &__field {
-    float: left;
+    margin: 1rem auto;
     height: 2.5rem;
     width: 28rem;
     position: relative;
-    margin: 1rem 0.5rem 0.25rem;
   }
 
   &__txt {
@@ -60,32 +59,24 @@ body {
     }
   }
 
-  &__toggle {
-    margin: 1.25rem 1rem 0.25rem;
-  }
-
   &__list {
     width: 30rem;
     margin: 1rem auto;
+    padding: 0;
 
     li {
       margin: 0.5rem 0;
-      width: 100%;
+      width: inherit;
       height: 2.5rem;
       background-color: whitesmoke;
       // background: linear-gradient(-90deg, #452dfd, #c322ba);
       transition: all 300ms ease;
       border-radius: 7px;
       overflow: hidden;
-
-      &.drop {
-        transform: translateY(8rem) rotate(22deg);
-        opacity: 0;
-      }
+      display: flex;
 
       p {
         width: 70%;
-        float: left;
         padding: 0 1rem;
         color: black;
         line-height: 2.5rem;
@@ -98,8 +89,7 @@ body {
       }
 
       & > button {
-        width: 10%;
-        float: left;
+        flex-basis: 10%;
         height: 100%;
         appearance: none;
         border-radius: 0;
@@ -117,7 +107,7 @@ body {
           background: $spring;
         }
 
-        * {
+        svg {
           font-size: 1.25rem;
           color: white;
         }
