@@ -1,11 +1,8 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
+import React from "react";
+import Tasks from "../components/Tasks";
 
-export default function Home() {
-  return (
-    <>
-      <h1>Hello world!</h1>
-      <section>slowly but surely</section>
-    </>
-  );
-}
+const todo = () => {
+  return <Tasks />;
+};
+
+export default todo;
