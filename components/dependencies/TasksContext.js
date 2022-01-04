@@ -76,9 +76,7 @@ const TasksContext = ({ children }) => {
   };
 
   useEffect(() => {
-    if (state !== initialState) {
-      localStorage.setItem("LIST", JSON.stringify(state.list));
-    }
+    localStorage.setItem("LIST", JSON.stringify(state.list));
   }, [state.list]);
 
   useEffect(() => {
