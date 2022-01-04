@@ -69,7 +69,6 @@ body {
       width: inherit;
       height: 2.5rem;
       background-color: whitesmoke;
-      // background: linear-gradient(-90deg, #452dfd, #c322ba);
       transition: all 300ms ease;
       border-radius: 7px;
       overflow: hidden;
@@ -81,7 +80,6 @@ body {
         color: black;
         line-height: 2.5rem;
         text-align: center;
-        /* transition: all 500ms ease; */
         &.completed {
           text-decoration: 1px line-through #ccc;
           color: $grey;
