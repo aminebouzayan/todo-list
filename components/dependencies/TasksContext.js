@@ -90,7 +90,6 @@ const TasksContext = ({ children }) => {
       type: "UPDATE_STATE",
       payload: JSON.parse(localStorage.getItem("LIST")),
     });
-    reference.current.focus();
   }, []);
 
   return (
